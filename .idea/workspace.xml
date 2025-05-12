@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5458e6c-9cb8-4b5d-a2c3-569ad4f0888f" name="변경" comment="Spring Boot" />
+    <list default="true" id="f5458e6c-9cb8-4b5d-a2c3-569ad4f0888f" name="변경" comment="Spring Boot">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,6 +46,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feature/backend",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/hybrid-chatbot/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -63,6 +73,9 @@
       <updated>1746797204125</updated>
       <workItem from="1746797205201" duration="276000" />
       <workItem from="1746797493527" duration="169000" />
+      <workItem from="1746846739995" duration="132000" />
+      <workItem from="1747045013677" duration="400000" />
+      <workItem from="1747045431279" duration="626000" />
     </task>
     <task id="LOCAL-00001" summary="Spring Boot">
       <option name="closed" value="true" />
@@ -86,8 +99,20 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Spring Boot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spring Boot" />
+    <MESSAGE value="security X" />
+    <option name="LAST_COMMIT_MESSAGE" value="security X" />
   </component>
 </project>
