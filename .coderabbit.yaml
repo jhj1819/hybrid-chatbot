@@ -9,6 +9,8 @@ reviews:
   collapse_walkthrough: false
 auto_review:
   enabled: true
-  drafts: false
+  branches:
+    include:
+      - "develop"
 chat:
   auto_reply: true
