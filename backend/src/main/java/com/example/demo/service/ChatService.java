@@ -26,7 +26,12 @@ public class ChatService {
         chatMessageRepository.save(chatMessage);
     }
 
-    public List<ChatMessage> getRecentMessages(String sessionId) {
+    public List<ChatMessage> getRecentMessagesBySessionId(String sessionId) {
         return chatMessageRepository.findTop10BySessionIdOrderByTimestampDesc(sessionId);
     }
+
+    public List<ChatMessage> getRecentMessagesByUserId(String userId) {
+        return chatMessageRepository.findTop10ByUserIdOrderByTimestampDesc(userId);
+    }
+
 }
