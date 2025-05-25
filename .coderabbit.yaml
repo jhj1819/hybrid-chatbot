@@ -11,6 +11,8 @@ auto_review:
   enabled: true
   branches:
     include:
+      - "main"
       - "develop"
+      - "feature/*"
 chat:
   auto_reply: true
