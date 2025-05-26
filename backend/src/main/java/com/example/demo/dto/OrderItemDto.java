@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderItemDTO {
+public class OrderItemDto {
     private String productId;
     private String productName;
     private Integer quantity;

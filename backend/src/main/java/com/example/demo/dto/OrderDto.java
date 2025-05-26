@@ -9,9 +9,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class OrderDTO {
+public class OrderDto {
     private String userId;
-    private List<OrderItemDTO> orderItems;
+    private List<OrderItemDto> orderItems;
     private BigDecimal totalAmount;
     private String shippingAddressId;
     private String paymentMethod;
