@@ -1,0 +1,18 @@
+language: "ko-KR" # 리뷰 언어
+early_access: false
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+auto_review:
+  enabled: true
+  branches:
+    include:
+      - "main"
+      - "develop"
+      - "feature/*"
+chat:
+  auto_reply: true
