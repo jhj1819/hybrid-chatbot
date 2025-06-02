@@ -38,12 +38,20 @@ source venv/bin/activate  # On Windows use: venv\Scripts\activate
 ```
 3. Install the required package:
 ```bash
-pip install websockets
+pip install flask
 ```
 4. Run the test backend:
 ```bash
 python test.py
 ```
+
+## API Endpoints
+
+The backend should implement the following REST API endpoint:
+
+- POST `/chat`
+  - Request body: `{ "message": string }`
+  - Response body: `{ "message": string }`
 
 ## Credits
 

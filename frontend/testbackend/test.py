@@ -1,34 +1,22 @@
 #!/usr/bin/env python
 
-import asyncio
-import websockets
-import os
-import json
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
-async def echo(websocket):  # Removed 'path' parameter as it's no longer needed in newer websockets versions
+app = Flask(__name__)
+CORS(app)
+
+@app.route('/chat', methods=['POST'])
+def chat():
     try:
-        async for message in websocket:
-            print("Received message:", message, flush=True)
-            
-            # Echo the message back
-            await websocket.send(message)
-            await websocket.send("[END]")
-    except websockets.exceptions.ConnectionClosed:
-        print("Client disconnected", flush=True)
+        message = request.json.get('message')
+        print("Received message:", message, flush=True)
+        
+        # Echo the message back
+        return jsonify({"message": message})
     except Exception as e:
         print(f"Error: {e}", flush=True)
+        return jsonify({"error": str(e)}), 500
 
-async def main():
-    print("WebSocket server starting", flush=True)
-    
-    # Create the server with CORS headers
-    async with websockets.serve(
-        echo,
-        "0.0.0.0",
-        int(os.environ.get('PORT', 8090))
-    ) as server:
-        print("WebSocket server running on port 8090", flush=True)
-        await asyncio.Future()  # run forever
-
-if __name__ == "__main__":
-    asyncio.run(main())
+if __name__ == '__main__':
+    app.run(host='localhost', port=8090)
