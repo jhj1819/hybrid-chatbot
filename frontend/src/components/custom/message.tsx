@@ -1,34 +1,29 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { cx } from 'classix';
 import { SparklesIcon } from './icons';
 import { Markdown } from './markdown';
 import { message } from "../../interfaces/interfaces"
 import { MessageActions } from '@/components/custom/actions';
+import '@/styles/main.css';
 
 export const PreviewMessage = ({ message }: { message: message; }) => {
-
   return (
     <motion.div
-      className="w-full mx-auto max-w-3xl px-4 group/message"
+      className="message fade-in"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       data-role={message.role}
     >
-      <div
-        className={cx(
-          'group-data-[role=user]/message:bg-zinc-700 dark:group-data-[role=user]/message:bg-muted group-data-[role=user]/message:text-white flex gap-4 group-data-[role=user]/message:px-3 w-full group-data-[role=user]/message:w-fit group-data-[role=user]/message:ml-auto group-data-[role=user]/message:max-w-2xl group-data-[role=user]/message:py-2 rounded-xl'
-        )}
-      >
+      <div className="message-content">
         {message.role === 'assistant' && (
-          <div className="size-8 flex items-center rounded-full justify-center ring-1 shrink-0 ring-border">
+          <div className="bot-icon">
             <SparklesIcon size={14} />
           </div>
         )}
 
-        <div className="flex flex-col w-full">
+        <div className="message-text">
           {message.content && (
-            <div className="flex flex-col gap-4 text-left">
+            <div className="markdown">
               <Markdown>{message.content}</Markdown>
             </div>
           )}
