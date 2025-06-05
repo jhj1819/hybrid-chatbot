@@ -12,6 +12,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/dialogflow")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:8502")
 public class DialogflowController {
 
     private final DialogflowService dialogflowService;
@@ -22,6 +23,7 @@ public class DialogflowController {
             @RequestParam String text,
             @RequestParam(defaultValue = "ko") String languageCode) {
 
+        System.out.println("Received request - sessionId: " + sessionId + ", text: " + text);
         DetectIntentResponse response = dialogflowService.detectIntent(sessionId, text, languageCode);
 
         // fulfillmentText 등 필요한 정보만 추출
