@@ -9,7 +9,7 @@ import {v4 as uuidv4} from 'uuid';
 import axios from 'axios';
 import '@/styles/main.css';
 
-const API_URL = "http://localhost:8090/chat"; // change to your API endpoint
+const API_URL = "http://localhost:8080/api/dialogflow/detect-intent"; // Dialogflow API endpoint
 
 export function Chat() {
   const [messagesContainerRef, messagesEndRef] = useScrollToBottom<HTMLDivElement>();
@@ -24,21 +24,43 @@ export function Chat() {
     setIsLoading(true);
     
     const traceId = uuidv4();
+    console.log('Sending message:', messageText);  // 요청 메시지 로깅
     setMessages(prev => [...prev, { content: messageText, role: "user", id: traceId }]);
     setQuestion("");
 
     try {
-      const response = await axios.post(API_URL, {
-        message: messageText
+      console.log('API Request URL:', API_URL);  // API URL 로깅
+      console.log('Request params:', {           // 요청 파라미터 로깅
+        sessionId: traceId,
+        text: messageText,
+        languageCode: "ko"
       });
+
+      const response = await axios.post(API_URL, null, {
+        params: {
+          sessionId: traceId,
+          text: messageText,
+          languageCode: "ko"
+        }
+      });
+
+      console.log('API Response:', response.data);  // 응답 데이터 로깅
+
+      if (!response.data.fulfillmentText) {
+        console.error('No fulfillmentText in response:', response.data);
+        return;
+      }
 
       setMessages(prev => [
         ...prev,
-        { content: response.data.message, role: "assistant", id: traceId }
+        { content: response.data.fulfillmentText, role: "assistant", id: traceId }
       ]);
     } catch (error) {
-      console.error("API error:", error);
-      // Optional: Add error handling UI here
+      console.error("API error details:", {  // 상세 에러 정보 로깅
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status
+      });
     } finally {
       setIsLoading(false);
     }
