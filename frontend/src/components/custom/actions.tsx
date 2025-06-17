@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
 import { Copy, ThumbsUp, ThumbsDown, Check } from 'lucide-react'
 import { useState } from "react"
 import { message } from "../../interfaces/interfaces"
+import '@/styles/main.css';
 
 interface MessageActionsProps {
   message: message
@@ -35,20 +35,20 @@ export function MessageActions({ message }: MessageActionsProps) {
   }
 
   return (
-    <div className="flex items-center space-x-1">
-      <Button variant="ghost" size="icon" onClick={handleCopy}>
+    <div className="message-actions">
+      <button className="action-button" onClick={handleCopy}>
         {copied ? (
-            <Check className="text-black dark:text-white" size={16} />
+          <Check className="icon-default" size={16} />
         ) : (
-            <Copy className="text-gray-500" size={16} />
+          <Copy className="icon-muted" size={16} />
         )}
-      </Button>
-      <Button variant="ghost" size="icon" onClick={handleLike}>
-        <ThumbsUp className={liked ? "text-black dark:text-white" : "text-gray-500"} size={16} />
-      </Button>
-      <Button variant="ghost" size="icon" onClick={handleDislike}>
-        <ThumbsDown className={disliked ? "text-black dark:text-white" : "text-gray-500"} size={16} />
-      </Button>
+      </button>
+      <button className="action-button" onClick={handleLike}>
+        <ThumbsUp className={liked ? "icon-default" : "icon-muted"} size={16} />
+      </button>
+      <button className="action-button" onClick={handleDislike}>
+        <ThumbsDown className={disliked ? "icon-default" : "icon-muted"} size={16} />
+      </button>
     </div>
   )
 }
